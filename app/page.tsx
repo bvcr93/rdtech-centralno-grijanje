@@ -373,7 +373,7 @@ export default function Home() {
                     <Phone className="mt-1 h-5 w-5 text-primary" />
                     <div>
                       <h3 className="font-bold">Phone</h3>
-                      <p className="text-muted-foreground">0800 123 4567</p>
+                      <p className="text-muted-foreground">+38598275398</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -381,7 +381,7 @@ export default function Home() {
                     <div>
                       <h3 className="font-bold">Email</h3>
                       <p className="text-muted-foreground">
-                        info@warmhomeheating.com
+                        robertbavcar@gmail.com
                       </p>
                     </div>
                   </div>

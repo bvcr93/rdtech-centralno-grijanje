@@ -253,7 +253,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
+        {/* <section
           id="testimonials"
           className="w-full py-12 md:py-24 lg:py-32 bg-background"
         >
@@ -365,7 +365,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section
           id="contact"

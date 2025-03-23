@@ -1,21 +1,25 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Thermometer,
-  Wrench,
-  ShieldCheck,
-  Award,
-  ArrowRight,
-} from "lucide-react";
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import { Phone, Mail, MapPin, Clock, Thermometer, Wrench, ShieldCheck, Award, ArrowRight } from "lucide-react"
 
 export default function Home() {
+  // Array of image paths in the public folder
+  const galleryImages = [
+    "/c1.jpeg",
+    "/c2.jpeg",
+    "/c3.jpeg",
+    "/c4.jpeg",
+    "/c5.jpeg",
+    "/c6.jpeg",
+    "/c7.jpeg",
+    "/c8.jpeg",
+    "/c9.jpeg",
+    "/c10.jpeg",
+  ]
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 w-full border-b bg-background">
@@ -25,28 +29,16 @@ export default function Home() {
             <span className="text-xl font-bold">RDTech</span>
           </div>
           <nav className="hidden md:flex gap-6">
-            <Link
-              href="#services"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
+            <Link href="#services" className="text-sm font-medium transition-colors hover:text-primary">
               Servisi
             </Link>
-            <Link
-              href="#about"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
+            <Link href="#about" className="text-sm font-medium transition-colors hover:text-primary">
               O nama
             </Link>
-            <Link
-              href="#testimonials"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
+            <Link href="#testimonials" className="text-sm font-medium transition-colors hover:text-primary">
               Reviews
             </Link>
-            <Link
-              href="#contact"
-              className="text-sm font-medium transition-colors hover:text-primary"
-            >
+            <Link href="#contact" className="text-sm font-medium transition-colors hover:text-primary">
               Contact
             </Link>
           </nav>
@@ -86,8 +78,8 @@ export default function Home() {
                     Reliable Central Heating Solutions for Your Home
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Professional installation, maintenance, and repair services
-                    to keep your home warm and comfortable all year round.
+                    Professional installation, maintenance, and repair services to keep your home warm and comfortable
+                    all year round.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -130,22 +122,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="services"
-          className="w-full py-12 md:py-24 lg:py-32 bg-background"
-        >
+        <section id="services" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-7xl">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  Our Services
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                  Complete Central Heating Solutions
-                </h2>
+                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Our Services</div>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Complete Central Heating Solutions</h2>
                 <p className="max-w-[700px] text-muted-foreground md:text-xl">
-                  We offer a comprehensive range of heating services to keep
-                  your home warm and your energy bills low.
+                  We offer a comprehensive range of heating services to keep your home warm and your energy bills low.
                 </p>
               </div>
             </div>
@@ -156,8 +140,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Installation</h3>
                 <p className="text-center text-muted-foreground">
-                  Professional installation of new central heating systems,
-                  boilers, and radiators with minimal disruption.
+                  Professional installation of new central heating systems, boilers, and radiators with minimal
+                  disruption.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
@@ -166,8 +150,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Maintenance</h3>
                 <p className="text-center text-muted-foreground">
-                  Regular servicing and maintenance to ensure your heating
-                  system runs efficiently and reliably.
+                  Regular servicing and maintenance to ensure your heating system runs efficiently and reliably.
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
@@ -176,8 +159,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Repairs</h3>
                 <p className="text-center text-muted-foreground">
-                  Fast, reliable repairs for all types of central heating
-                  systems and boilers when problems arise.
+                  Fast, reliable repairs for all types of central heating systems and boilers when problems arise.
                 </p>
               </div>
             </div>
@@ -189,24 +171,19 @@ export default function Home() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                    About Us
-                  </div>
+                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">About Us</div>
                   <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
                     Your Trusted Heating Specialists Since 2005
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    With over 15 years of experience, our team of certified
-                    engineers provides reliable, efficient, and affordable
-                    heating solutions for homes and businesses.
+                    With over 15 years of experience, our team of certified engineers provides reliable, efficient, and
+                    affordable heating solutions for homes and businesses.
                   </p>
                 </div>
                 <ul className="grid gap-2">
                   <li className="flex items-center gap-2">
                     <ShieldCheck className="h-5 w-5 text-primary" />
-                    <span>
-                      Fully qualified and Gas Safe registered engineers
-                    </span>
+                    <span>Fully qualified and Gas Safe registered engineers</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <ShieldCheck className="h-5 w-5 text-primary" />
@@ -235,22 +212,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="testimonials"
-          className="w-full py-12 md:py-24 lg:py-32 bg-background"
-        >
+        <section id="testimonials" className="w-full py-12 md:py-24 lg:py-32 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-7xl">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  Testimonials
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                  What Our Customers Say
-                </h2>
+                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Testimonials</div>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">What Our Customers Say</h2>
                 <p className="max-w-[700px] text-muted-foreground md:text-xl">
-                  Don't just take our word for it. Here's what our satisfied
-                  customers have to say about our services.
+                  Don't just take our word for it. Here's what our satisfied customers have to say about our services.
                 </p>
               </div>
             </div>
@@ -273,16 +242,13 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "Excellent service from start to finish. The engineers were
-                    professional, tidy, and completed the installation ahead of
-                    schedule. Our home has never been so warm!"
+                    "Excellent service from start to finish. The engineers were professional, tidy, and completed the
+                    installation ahead of schedule. Our home has never been so warm!"
                   </p>
                 </div>
                 <div>
                   <p className="font-medium">Sarah Johnson</p>
-                  <p className="text-sm text-muted-foreground">
-                    Boiler Installation
-                  </p>
+                  <p className="text-sm text-muted-foreground">Boiler Installation</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between space-y-4 rounded-lg border p-6 shadow-sm">
@@ -303,16 +269,13 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "I called with an emergency heating breakdown during the
-                    coldest week of the year. They were at my door within 2
-                    hours and fixed the issue on the spot. Fantastic service!"
+                    "I called with an emergency heating breakdown during the coldest week of the year. They were at my
+                    door within 2 hours and fixed the issue on the spot. Fantastic service!"
                   </p>
                 </div>
                 <div>
                   <p className="font-medium">David Thompson</p>
-                  <p className="text-sm text-muted-foreground">
-                    Emergency Repair
-                  </p>
+                  <p className="text-sm text-muted-foreground">Emergency Repair</p>
                 </div>
               </div>
               <div className="flex flex-col justify-between space-y-4 rounded-lg border p-6 shadow-sm">
@@ -333,39 +296,28 @@ export default function Home() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "We've been using WarmHome for our annual boiler service for
-                    the past 5 years. Always reliable, thorough, and they
-                    provide great advice on how to improve efficiency."
+                    "We've been using WarmHome for our annual boiler service for the past 5 years. Always reliable,
+                    thorough, and they provide great advice on how to improve efficiency."
                   </p>
                 </div>
                 <div>
                   <p className="font-medium">Emma Wilson</p>
-                  <p className="text-sm text-muted-foreground">
-                    Godisnje odrzavanje
-                  </p>
+                  <p className="text-sm text-muted-foreground">Godisnje odrzavanje</p>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section
-          id="contact"
-          className="w-full py-12 md:py-24 lg:py-32 bg-muted"
-        >
+        <section id="contact" className="w-full py-12 md:py-24 lg:py-32 bg-muted">
           <div className="container mx-auto px-4 md:px-6 max-w-7xl">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                    Contact Us
-                  </div>
-                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                    Get in Touch for a Free Quote
-                  </h2>
+                  <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Contact Us</div>
+                  <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Get in Touch for a Free Quote</h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Whether you need a new installation, maintenance, or
-                    emergency repairs, our team is ready to help.
+                    Whether you need a new installation, maintenance, or emergency repairs, our team is ready to help.
                   </p>
                 </div>
                 <div className="grid gap-4">
@@ -380,27 +332,21 @@ export default function Home() {
                     <Mail className="mt-1 h-5 w-5 text-primary" />
                     <div>
                       <h3 className="font-bold">Email</h3>
-                      <p className="text-muted-foreground">
-                        robertbavcar@gmail.com
-                      </p>
+                      <p className="text-muted-foreground">robertbavcar@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <MapPin className="mt-1 h-5 w-5 text-primary" />
                     <div>
                       <h3 className="font-bold">Address</h3>
-                      <p className="text-muted-foreground">
-                        123 Heating Road, Warmtown, WT1 2HT
-                      </p>
+                      <p className="text-muted-foreground">123 Heating Road, Warmtown, WT1 2HT</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Clock className="mt-1 h-5 w-5 text-primary" />
                     <div>
                       <h3 className="font-bold">Hours</h3>
-                      <p className="text-muted-foreground">
-                        Mon-Fri: 8am-6pm | Emergency service: 24/7
-                      </p>
+                      <p className="text-muted-foreground">Mon-Fri: 8am-6pm | Emergency service: 24/7</p>
                     </div>
                   </div>
                 </div>
@@ -408,8 +354,7 @@ export default function Home() {
               <div className="rounded-lg border bg-background p-6 shadow-sm">
                 <h3 className="text-xl font-bold">Request a Quote</h3>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Fill out the form below and we'll get back to you as soon as
-                  possible.
+                  Fill out the form below and we'll get back to you as soon as possible.
                 </p>
                 <form className="grid gap-4">
                   <div className="grid grid-cols-2 gap-4">
@@ -439,11 +384,7 @@ export default function Home() {
                     >
                       Email
                     </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john.doe@example.com"
-                    />
+                    <Input id="email" type="email" placeholder="john.doe@example.com" />
                   </div>
                   <div className="space-y-2">
                     <label
@@ -480,16 +421,40 @@ export default function Home() {
                     >
                       Message
                     </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Please provide details about your requirements..."
-                    />
+                    <Textarea id="message" placeholder="Please provide details about your requirements..." />
                   </div>
                   <Button type="submit" className="w-full">
                     Submit Request
                   </Button>
                 </form>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="gallery" className="w-full py-12 md:py-24 lg:py-32 bg-background">
+          <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">Gallery</div>
+                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">Our Recent Projects</h2>
+                <p className="max-w-[700px] text-muted-foreground md:text-xl">
+                  Take a look at some of our recent installations and heating solutions.
+                </p>
+              </div>
+            </div>
+            <div className="mx-auto grid gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
+              {galleryImages.map((image, index) => (
+                <div key={index} className="overflow-hidden rounded-lg">
+                  <Image
+                    src={image || "/placeholder.svg"}
+                    width={600}
+                    height={400}
+                    alt={`Heating project ${index + 1}`}
+                    className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -501,12 +466,9 @@ export default function Home() {
               <Thermometer className="h-6 w-6 text-primary" />
               <span className="text-xl font-bold">WarmHome Heating</span>
             </div>
+            <p className="text-sm text-muted-foreground">Professional central heating solutions for your home.</p>
             <p className="text-sm text-muted-foreground">
-              Professional central heating solutions for your home.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} WarmHome Heating Ltd. All rights
-              reserved.
+              &copy; {new Date().getFullYear()} WarmHome Heating Ltd. All rights reserved.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-12 sm:grid-cols-4">
@@ -514,34 +476,22 @@ export default function Home() {
               <h3 className="text-sm font-medium">Services</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Installation
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Maintenance
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Repairs
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Emergency Call-outs
                   </Link>
                 </li>
@@ -551,34 +501,22 @@ export default function Home() {
               <h3 className="text-sm font-medium">Company</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Our Team
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Contact
                   </Link>
                 </li>
@@ -588,34 +526,22 @@ export default function Home() {
               <h3 className="text-sm font-medium">Resources</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Guides
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     FAQs
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Support
                   </Link>
                 </li>
@@ -625,26 +551,17 @@ export default function Home() {
               <h3 className="text-sm font-medium">Legal</h3>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="#"
-                    className="text-muted-foreground transition-colors hover:text-foreground"
-                  >
+                  <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
                     Cookie Policy
                   </Link>
                 </li>
@@ -654,5 +571,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
+

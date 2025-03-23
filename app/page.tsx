@@ -22,26 +22,26 @@ export default function Home() {
         <div className="container mx-auto flex h-16 items-center justify-between py-4 px-4 md:px-6">
           <div className="flex items-center gap-2">
             <Thermometer className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">WarmHome Heating</span>
+            <span className="text-xl font-bold">RDTech</span>
           </div>
           <nav className="hidden md:flex gap-6">
             <Link
               href="#services"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
-              Services
+              Servisi
             </Link>
             <Link
               href="#about"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
-              About Us
+              O nama
             </Link>
             <Link
               href="#testimonials"
               className="text-sm font-medium transition-colors hover:text-primary"
             >
-              Testimonials
+              Reviews
             </Link>
             <Link
               href="#contact"
@@ -52,7 +52,7 @@ export default function Home() {
           </nav>
           <div className="flex items-center gap-4">
             <Link href="#contact">
-              <Button>Get a Quote</Button>
+              <Button>Kontakt</Button>
             </Link>
             <Button variant="outline" size="icon" className="md:hidden">
               <span className="sr-only">Toggle menu</span>
@@ -341,7 +341,7 @@ export default function Home() {
                 <div>
                   <p className="font-medium">Emma Wilson</p>
                   <p className="text-sm text-muted-foreground">
-                    Annual Maintenance
+                    Godisnje odrzavanje
                   </p>
                 </div>
               </div>

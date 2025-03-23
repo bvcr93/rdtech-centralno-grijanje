@@ -492,7 +492,7 @@ export default function Home() {
                 </li>
                 <li>
                   <Link href="#" className="text-muted-foreground transition-colors hover:text-foreground">
-                    Emergency Call-outs
+                    Emergency Call-outss
                   </Link>
                 </li>
               </ul>

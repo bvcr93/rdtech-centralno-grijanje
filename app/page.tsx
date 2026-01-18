@@ -17,7 +17,7 @@ import {
 import c1 from "../public/c1.jpeg";
 import c2 from "../public/c2.jpeg";
 export default function Home() {
-  // Polje putanja slika u public mapi
+
   const galleryImages = [
     "/c1.jpeg",
     "/c2.jpeg",

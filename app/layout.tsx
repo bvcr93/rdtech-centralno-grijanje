@@ -34,7 +34,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="hr">
+
       <head>
         {/* Google Tag (gtag.js) */}
         <Script

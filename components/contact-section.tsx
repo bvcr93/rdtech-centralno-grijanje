@@ -5,6 +5,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, MapPin } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -13,6 +20,8 @@ export function ContactSection() {
     phone: "",
     message: "",
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,8 +36,8 @@ export function ContactSection() {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Obrazac je uspješno poslan!");
         setFormData({ firstName: "", lastName: "", phone: "", message: "" });
+        setIsModalOpen(true); // Otvori modal nakon uspješnog slanja
       } else {
         alert("Slanje obrasca nije uspjelo: " + data.error);
       }
@@ -42,6 +51,7 @@ export function ContactSection() {
     <section id="contact" className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16">
+          {/* Info kontakt */}
           <div>
             <p className="text-sm font-medium text-accent mb-3 uppercase tracking-wider">
               Kontakt
@@ -64,7 +74,7 @@ export function ContactSection() {
                     href="tel:+385911275390"
                     className="text-foreground font-medium hover:text-accent transition-colors"
                   >
-                    +385911275390
+                    +385 91 127 5390
                   </a>
                 </div>
               </div>
@@ -76,7 +86,7 @@ export function ContactSection() {
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <a
-                    href="mailto:info@warmhome.com"
+                    href="mailto:robert.bavcar@gmail.com"
                     className="text-foreground font-medium hover:text-accent transition-colors"
                   >
                     robert.bavcar@gmail.com
@@ -91,13 +101,14 @@ export function ContactSection() {
                 <div>
                   <p className="text-sm text-muted-foreground">Posjetite nas</p>
                   <p className="text-foreground font-medium">
-                    Djelujemo u Istri, Primorsko-Goranskoj Zupaniji i Gorskom Kotru
+                    Djelujemo u Istri, Primorsko-Goranskoj županiji i Gorskom Kotru
                   </p>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Forma */}
           <div className="bg-card p-8 rounded-2xl border border-border">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
@@ -184,6 +195,21 @@ export function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* Modal nakon uspješnog slanja */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="sm:max-w-sm">
+          <DialogTitle>Hvala!</DialogTitle>
+          <DialogDescription>
+            Vaš upit je uspješno poslan. Javit ćemo vam se uskoro.
+          </DialogDescription>
+          <div className="mt-4 flex justify-end">
+            <DialogClose asChild>
+              <Button>Zatvori</Button>
+            </DialogClose>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }

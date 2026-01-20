@@ -1,5 +1,5 @@
 import { CheckCircle } from "lucide-react";
-
+import image2 from '../public/c5.jpeg'
 const highlights = [
   "Inženjeri s Gas Safe certifikatom",
   "Više od 20 godina iskustva u industriji",
@@ -17,7 +17,7 @@ export function AboutSection() {
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-muted">
               <img
-                src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&h=600&fit=crop"
+                src={image2.src}
                 alt="Tim inženjera grijanja raspravlja o projektu"
                 className="w-full h-full object-cover"
               />

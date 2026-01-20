@@ -1,5 +1,5 @@
 import { CheckCircle } from "lucide-react";
-import image2 from '../public/c5.jpeg'
+import image2 from "../public/c5.jpeg";
 const highlights = [
   "Inženjeri s Gas Safe certifikatom",
   "Više od 20 godina iskustva u industriji",
@@ -37,10 +37,10 @@ export function AboutSection() {
                 Gdje stručnost susreće pouzdanost
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Mi smo tim posvećenih profesionalaca u grijanju koji osiguravaju da
-                domovi ostanu topli i ugodni. S više od dvadeset godina iskustva,
-                izgradili smo reputaciju na kvalitetnom radu i izvanrednoj
-                korisničkoj podršci.
+                Mi smo tim posvećenih profesionalaca u grijanju koji osiguravaju
+                da domovi ostanu topli i ugodni. S više od dvadeset godina
+                iskustva, izgradili smo reputaciju na kvalitetnom radu i
+                izvanrednoj korisničkoj podršci.
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 Svaki član našeg tima ima Gas Safe certifikat i redovito prolazi

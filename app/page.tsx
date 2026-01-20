@@ -16,8 +16,8 @@ import {
 } from "lucide-react";
 import c1 from "../public/c1.jpeg";
 import c2 from "../public/c2.jpeg";
+import SubmitForm from "@/components/submit-form";
 export default function Home() {
-
   const galleryImages = [
     "/c1.jpeg",
     "/c2.jpeg",
@@ -37,7 +37,7 @@ export default function Home() {
         <div className="container mx-auto flex h-16 items-center justify-between py-4 px-4 md:px-6">
           <div className="flex items-center gap-2">
             <Thermometer className="h-6 w-6 text-primary" />
-            <span className="text-xl font-bold">RDTech</span>
+            <span className="text-xl font-bold">Bavčar grijanje</span>
           </div>
           <nav className="hidden md:flex gap-6">
             <Link
@@ -172,8 +172,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Ugradnja</h3>
                 <p className="text-center text-muted-foreground">
-                  Profesionalna ugradnja novih sustava centralnog grijanja,
-                  bojlera i radijatora uz minimalne smetnje.
+                  Profesionalna ugradnja novih sustava regulacije centralnog
+                  grijanja
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 rounded-lg border p-6 shadow-sm">
@@ -253,120 +253,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* <section
-          id="testimonials"
-          className="w-full py-12 md:py-24 lg:py-32 bg-background"
-        >
-          <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <div className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm text-primary">
-                  Recenzije
-                </div>
-                <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                  Što kažu naši klijenti
-                </h2>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl">
-                  Ne vjerujte samo našim riječima. Evo što naši zadovoljni
-                  klijenti kažu o našim uslugama.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border p-6 shadow-sm">
-                <div className="space-y-2">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="h-5 w-5 text-primary"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground">
-                    "Odlična usluga od početka do kraja. Inženjeri su bili
-                    profesionalni, uredni i završili su instalaciju prije roka.
-                    Naš dom nikada nije bio tako topao!"
-                  </p>
-                </div>
-                <div>
-                  <p className="font-medium">Sarah Johnson</p>
-                  <p className="text-sm text-muted-foreground">
-                    Ugradnja bojlera
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border p-6 shadow-sm">
-                <div className="space-y-2">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="h-5 w-5 text-primary"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground">
-                    "Nazvao sam zbog hitnog kvara grijanja tijekom najhladnijeg
-                    tjedna u godini. Bili su na mojim vratima u roku od 2 sata i
-                    odmah riješili problem. Fantastična usluga!"
-                  </p>
-                </div>
-                <div>
-                  <p className="font-medium">David Thompson</p>
-                  <p className="text-sm text-muted-foreground">
-                    Hitni popravak
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between space-y-4 rounded-lg border p-6 shadow-sm">
-                <div className="space-y-2">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="h-5 w-5 text-primary"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground">
-                    "Koristimo WarmHome za godišnji servis bojlera posljednjih 5
-                    godina. Uvijek pouzdani, temeljiti i pružaju odlične savjete
-                    o poboljšanju učinkovitosti."
-                  </p>
-                </div>
-                <div>
-                  <p className="font-medium">Emma Wilson</p>
-                  <p className="text-sm text-muted-foreground">
-                    Godišnje održavanje
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
         <section
           id="contact"
           className="w-full py-12 md:py-24 lg:py-32 bg-muted"
@@ -414,91 +300,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              {/* <div className="rounded-lg border bg-background p-6 shadow-sm">
-                <h3 className="text-xl font-bold">Zatražite ponudu</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Ispunite obrazac u nastavku i javit ćemo vam se što je prije
-                  moguće.
-                </p>
-                <form className="grid gap-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="first-name"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Ime
-                      </label>
-                      <Input id="first-name" placeholder="Ivan" />
-                    </div>
-                    <div className="space-y-2">
-                      <label
-                        htmlFor="last-name"
-                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                      >
-                        Prezime
-                      </label>
-                      <Input id="last-name" placeholder="Horvat" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="email"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      E-mail
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="ivan.horvat@primjer.hr"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="phone"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Telefon
-                    </label>
-                    <Input id="phone" type="tel" placeholder="091 234 5678" />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="service"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Potrebna usluga
-                    </label>
-                    <select
-                      id="service"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    >
-                      <option value="">Odaberite uslugu</option>
-                      <option value="installation">Nova instalacija</option>
-                      <option value="repair">Popravak</option>
-                      <option value="maintenance">Održavanje</option>
-                      <option value="emergency">Hitna intervencija</option>
-                      <option value="other">Ostalo</option>
-                    </select>
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="message"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Poruka
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Molimo navedite detalje o vašim potrebama..."
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Pošalji upit
-                  </Button>
-                </form>
-              </div> */}
+              <SubmitForm />
             </div>
           </div>
         </section>

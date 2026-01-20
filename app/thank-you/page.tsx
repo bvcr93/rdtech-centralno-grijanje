@@ -1,23 +1,14 @@
-import Script from "next/script";
-
-export default function ThankYouPage() {
+export default function ThankYou() {
   return (
-    <>
-      <Script
-        id="conversion-snippet"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            gtag('event', 'conversion', {
-              'send_to': 'AW-956810905/GQr_CNOaoKcZEJMnN8gD'
-            });
-          `,
-        }}
-      />
-      <main className="p-8">
-        <h1 className="text-3xl font-bold">Thank you!</h1>
-        <p>We’ve received your request. We’ll be in touch soon.</p>
-      </main>
-    </>
+    <div className="flex min-h-screen items-center justify-center px-4">
+      <div className="max-w-md rounded-lg border bg-background p-8 text-center shadow-sm">
+        <h1 className="mb-4 text-2xl font-bold">
+          Hvala na poslanom upitu
+        </h1>
+        <p className="text-muted-foreground">
+          Zaprimili smo vaš upit i javit ćemo vam se u najkraćem mogućem roku.
+        </p>
+      </div>
+    </div>
   );
 }

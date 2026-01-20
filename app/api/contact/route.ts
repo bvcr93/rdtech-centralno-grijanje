@@ -3,17 +3,20 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: NextRequest) {
   try {
-  const { firstName, lastName, phone, message } = await req.json();
-console.log("Received data:", { firstName, lastName, phone, message });
+    const { firstName, lastName, phone, message } = await req.json();
 
+    // Trim input values
+    const fName = firstName?.trim();
+    const lName = lastName?.trim();
+    const msg = message?.trim();
+    const ph = phone?.trim() || "N/A";
 
-if (!firstName?.trim() || !lastName?.trim() || !message?.trim()) {
-  return NextResponse.json(
-    { error: "Missing required fields" },
-    { status: 400 }
-  );
-}
-
+    if (!fName || !lName || !msg) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 }
+      );
+    }
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -28,15 +31,15 @@ if (!firstName?.trim() || !lastName?.trim() || !message?.trim()) {
       to: "darelbavcar1@gmail.com",
       subject: "New Contact Form Submission",
       html: `
-        <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-        <p><strong>Phone:</strong> ${phone}</p>
-        <p><strong>Message:</strong><br/>${message}</p>
+        <p><strong>Name:</strong> ${fName} ${lName}</p>
+        <p><strong>Phone:</strong> ${ph}</p>
+        <p><strong>Message:</strong><br/>${msg}</p>
       `,
     });
 
     return NextResponse.json({ message: "Email sent successfully" });
   } catch (err) {
-    console.error(err);
+    console.error("Email error:", err);
     return NextResponse.json(
       { error: "Failed to send email" },
       { status: 500 }

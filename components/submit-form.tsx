@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
+import { Input } from "./ui/input";
 
 export default function SubmitForm() {
   return (
@@ -16,29 +16,28 @@ export default function SubmitForm() {
         method="POST"
         className="grid gap-4"
       >
-        {/* Obavezni FormSubmit inputi */}
+        {/* FormSubmit postavke */}
+        <input type="hidden" name="_subject" value="Novi upit s web stranice" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_subject" value="Novi upit s web stranice" />
         <input
           type="hidden"
           name="_next"
-          value="https://bavcar-centralno-grijanje.vercel.app/thank-you"
+          value="http://localhost:3000/thank-you"
         />
 
-        {/* Ime i prezime */}
         <div className="grid grid-cols-2 gap-4">
           <div className="space-y-2">
             <label className="text-sm font-medium">Ime</label>
             <Input name="Ime" placeholder="Ivan" required />
           </div>
+
           <div className="space-y-2">
             <label className="text-sm font-medium">Prezime</label>
             <Input name="Prezime" placeholder="Horvat" required />
           </div>
         </div>
 
-        {/* Telefon */}
         <div className="space-y-2">
           <label className="text-sm font-medium">Telefon</label>
           <Input
@@ -49,7 +48,6 @@ export default function SubmitForm() {
           />
         </div>
 
-        {/* Usluga */}
         <div className="space-y-2">
           <label className="text-sm font-medium">Potrebna usluga</label>
           <select
@@ -66,7 +64,6 @@ export default function SubmitForm() {
           </select>
         </div>
 
-        {/* Poruka */}
         <div className="space-y-2">
           <label className="text-sm font-medium">Poruka</label>
           <Textarea

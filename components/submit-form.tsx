@@ -23,7 +23,7 @@ export default function SubmitForm() {
         <input
           type="hidden"
           name="_next"
-          value="http://localhost:3000/thank-you"
+          value="https://bavcar-centralno-grijanje.vercel.app/thank-you"
         />
 
         <div className="grid grid-cols-2 gap-4">

@@ -12,6 +12,7 @@ import {
   DialogDescription,
   DialogClose,
 } from "@/components/ui/dialog";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -21,10 +22,12 @@ export function ContactSection() {
     message: "",
   });
 
+  const [isLoading, setIsLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const res = await fetch("/api/contact", {
@@ -37,13 +40,15 @@ export function ContactSection() {
 
       if (res.ok) {
         setFormData({ firstName: "", lastName: "", phone: "", message: "" });
-        setIsModalOpen(true); // Otvori modal nakon uspješnog slanja
+        setIsModalOpen(true);
       } else {
         alert("Slanje obrasca nije uspjelo: " + data.error);
       }
     } catch (err) {
       console.error(err);
       alert("Slanje obrasca nije uspjelo: Greška servera");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -101,7 +106,8 @@ export function ContactSection() {
                 <div>
                   <p className="text-sm text-muted-foreground">Posjetite nas</p>
                   <p className="text-foreground font-medium">
-                    Djelujemo u Istri, Primorsko-Goranskoj županiji i Gorskom Kotru
+                    Djelujemo u Istri, Primorsko-Goranskoj županiji i Gorskom
+                    Kotru
                   </p>
                 </div>
               </div>
@@ -110,88 +116,99 @@ export function ContactSection() {
 
           {/* Forma */}
           <div className="bg-card p-8 rounded-2xl border border-border">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
+            {isLoading ? (
+              <div className="space-y-4">
+                <Skeleton className="h-10 w-full rounded-lg bg-gray-200" />
+                <Skeleton className="h-10 w-full rounded-lg bg-gray-200" />
+                <Skeleton className="h-10 w-full rounded-lg bg-gray-200" />
+                <Skeleton className="h-24 w-full rounded-lg bg-gray-200" />
+                <Skeleton className="h-12 w-full rounded-lg bg-gray-200" />
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="firstName"
+                      className="text-sm font-medium text-foreground"
+                    >
+                      Ime
+                    </label>
+                    <Input
+                      id="firstName"
+                      placeholder="Ivan"
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="lastName"
+                      className="text-sm font-medium text-foreground"
+                    >
+                      Prezime
+                    </label>
+                    <Input
+                      id="lastName"
+                      placeholder="Horvat"
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                </div>
+
                 <div className="space-y-2">
                   <label
-                    htmlFor="firstName"
+                    htmlFor="phone"
                     className="text-sm font-medium text-foreground"
                   >
-                    Ime
+                    Telefon
                   </label>
                   <Input
-                    id="firstName"
-                    placeholder="Ivan"
-                    value={formData.firstName}
+                    id="phone"
+                    type="tel"
+                    placeholder="091 234 5678"
+                    value={formData.phone}
                     onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-medium text-foreground"
+                  >
+                    Poruka
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder="Recite nam nešto o vašim potrebama grijanja..."
+                    rows={4}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
                     }
                     required
                   />
                 </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="lastName"
-                    className="text-sm font-medium text-foreground"
-                  >
-                    Prezime
-                  </label>
-                  <Input
-                    id="lastName"
-                    placeholder="Horvat"
-                    value={formData.lastName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, lastName: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-              </div>
 
-              <div className="space-y-2">
-                <label
-                  htmlFor="phone"
-                  className="text-sm font-medium text-foreground"
+                <Button
+                  type="submit"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  disabled={isLoading}
                 >
-                  Telefon
-                </label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder="091 234 5678"
-                  value={formData.phone}
-                  onChange={(e) =>
-                    setFormData({ ...formData, phone: e.target.value })
-                  }
-                />
-              </div>
-
-              <div className="space-y-2">
-                <label
-                  htmlFor="message"
-                  className="text-sm font-medium text-foreground"
-                >
-                  Poruka
-                </label>
-                <Textarea
-                  id="message"
-                  placeholder="Recite nam nešto o vašim potrebama grijanja..."
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  required
-                />
-              </div>
-
-              <Button
-                type="submit"
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-              >
-                Pošalji upit
-              </Button>
-            </form>
+                  Pošalji upit
+                </Button>
+              </form>
+            )}
           </div>
         </div>
       </div>

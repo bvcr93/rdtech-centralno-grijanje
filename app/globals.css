@@ -124,3 +124,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+html,
+body {
+  background-color: hsl(var(--background));
+  overflow-x: hidden;
+}

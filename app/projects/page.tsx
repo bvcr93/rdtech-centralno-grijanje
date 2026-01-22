@@ -326,7 +326,7 @@ export default function ProjectsPage() {
 
           <button
             onClick={goToPrevious}
-            className="absolute left-4 p-2 text-white/80 hover:text-white transition-colors"
+            className="absolute left-4 z-50 p-2 text-white/80 hover:text-white transition-colors"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-10 h-10" />
@@ -334,7 +334,7 @@ export default function ProjectsPage() {
 
           <button
             onClick={goToNext}
-            className="absolute right-4 p-2 text-white/80 hover:text-white transition-colors"
+            className="absolute right-4 z-50 p-2 text-white/80 hover:text-white transition-colors"
             aria-label="Next image"
           >
             <ChevronRight className="w-10 h-10" />

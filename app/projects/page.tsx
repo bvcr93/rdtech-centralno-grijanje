@@ -318,7 +318,7 @@ export default function ProjectsPage() {
         <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 p-2 text-white/80 hover:text-white transition-colors"
+            className="absolute top-4 right-4 z-50 p-2 text-white/80 hover:text-white transition-colors"
             aria-label="Close lightbox"
           >
             <X className="w-8 h-8" />

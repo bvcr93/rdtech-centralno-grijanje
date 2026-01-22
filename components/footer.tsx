@@ -14,21 +14,15 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-primary-foreground/80 leading-relaxed max-w-md mb-6">
-              Profesionalne usluge grijanja peći i plamenika na lož-ulje u vašem području. Instalacija, popravak i održavanje od strane certificiranih tehničara.
+              Profesionalne usluge grijanja peći i plamenika na lož-ulje u vašem
+              području. Popravak i održavanje od strane
+              iskusnih tehničara.
             </p>
           </div>
 
           <div>
             <h3 className="font-semibold mb-4">Usluge</h3>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  href="#services"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Instalacija peći
-                </Link>
-              </li>
               <li>
                 <Link
                   href="#services"
@@ -97,7 +91,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-primary-foreground/20 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © 2026 WarmHome Grijanje. Sva prava pridržana.
+            © Bavčar Grijanje. Sva prava pridržana.
           </p>
           <div className="flex items-center gap-6">
             <Link

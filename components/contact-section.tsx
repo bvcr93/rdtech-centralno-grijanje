@@ -79,7 +79,7 @@ export function ContactSection() {
                     href="tel:+385911275390"
                     className="text-foreground font-medium hover:text-accent transition-colors"
                   >
-                    +385 91 127 5390
+                    +385 91 127 5398
                   </a>
                 </div>
               </div>

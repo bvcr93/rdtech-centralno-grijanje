@@ -1,9 +1,12 @@
+"use client";
+
 import { CheckCircle } from "lucide-react";
 import image2 from "../public/c5.jpeg";
+import { Tooltip } from "@/components/ui/tooltip-card";
+
 const highlights = [
-  "Inženjeri s Gas Safe certifikatom",
   "Više od 20 godina iskustva u industriji",
-  "Transparentne cijene bez skrivenih troškova",
+  "Transparentne cijene",
   "Lokalni tehničari u vašem području",
   "Ekološka rješenja grijanja",
   "Mogućnost financiranja",
@@ -14,6 +17,7 @@ export function AboutSection() {
     <section id="about" className="py-24 bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Image */}
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-muted">
               <img
@@ -28,6 +32,7 @@ export function AboutSection() {
             </div>
           </div>
 
+          {/* Right Content */}
           <div className="space-y-8">
             <div>
               <p className="text-sm font-medium text-accent mb-3 uppercase tracking-wider">
@@ -42,13 +47,32 @@ export function AboutSection() {
                 iskustva, izgradili smo reputaciju na kvalitetnom radu i
                 izvanrednoj korisničkoj podršci.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                Svaki član našeg tima ima Gas Safe certifikat i redovito prolazi
-                dodatnu edukaciju kako bi bio u toku s najnovijom tehnologijom
-                grijanja i sigurnosnim standardima.
-              </p>
+              <div className="text-muted-foreground leading-relaxed">
+                Servisiramo i održavamo <Tooltip
+                  containerClassName="text-foreground"
+                  content={
+                    <div className="p-2 max-w-xs">
+                      <p className="font-semibold">Peći koje servisiramo:</p>
+                      <ul className="text-xs mt-1 list-disc list-inside text-muted-foreground">
+                        <li>Viessmann</li>
+                        <li>Thyssen</li>
+                        <li>Riello</li>
+                        <li>Ferroli</li>
+                        <li>Buderus</li>
+                        <li>i druge</li>
+                      </ul>
+                    </div>
+                  }
+                >
+                  <span className="cursor-pointer font-semibold underline">
+                    peći
+                  </span>
+                </Tooltip>{" "}
+                svih glavnih marki i osiguravamo profesionalnu instalaciju, održavanje i servis.
+              </div>
             </div>
 
+            {/* Highlights */}
             <div className="grid sm:grid-cols-2 gap-4">
               {highlights.map((highlight) => (
                 <div key={highlight} className="flex items-center gap-3">

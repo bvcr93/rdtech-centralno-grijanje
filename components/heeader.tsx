@@ -24,26 +24,37 @@ export function Header() {
               href="#services"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Usluge
+              Services
+            </Link>
+            <Link
+              href="#pricing"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Pricing
             </Link>
             <Link
               href="#about"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              O nama
+              About
             </Link>
             <Link
               href="#gallery"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Galerija
+              Gallery
             </Link>
-
+            <Link
+              href="#testimonials"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Testimonials
+            </Link>
             <Link
               href="#contact"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Kontakt
+              Contact
             </Link>
           </nav>
 
@@ -53,10 +64,10 @@ export function Header() {
               className="flex items-center gap-2 text-sm font-medium text-foreground"
             >
               <Phone className="h-4 w-4" />
-              +385911275398
+              0800-123-4567
             </a>
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-              Rezerviraj uslugu
+              Book a Service
             </Button>
           </div>
 
@@ -83,29 +94,42 @@ export function Header() {
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Usluge
+              Services
+            </Link>
+            <Link
+              href="#pricing"
+              className="block text-base font-medium text-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Pricing
             </Link>
             <Link
               href="#about"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              O nama
+              About
             </Link>
             <Link
               href="#gallery"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Galerija
+              Gallery
             </Link>
-
+            <Link
+              href="#testimonials"
+              className="block text-base font-medium text-foreground"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Testimonials
+            </Link>
             <Link
               href="#contact"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Kontakt
+              Contact
             </Link>
             <div className="pt-4 border-t border-border">
               <a
@@ -113,10 +137,10 @@ export function Header() {
                 className="flex items-center gap-2 text-base font-medium text-foreground mb-4"
               >
                 <Phone className="h-5 w-5" />
-                +385911275398
+                0800-123-4567
               </a>
               <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                Rezerviraj uslugu
+                Book a Service
               </Button>
             </div>
           </div>

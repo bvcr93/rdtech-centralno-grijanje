@@ -2,20 +2,26 @@ import { Header } from "@/components/heeader";
 import { HeroSection } from "@/components/hero-section";
 import { ServicesSection } from "@/components/services-section";
 import { AboutSection } from "@/components/about-section";
+import { PricingSection } from "@/components/pricing-section";
 import { GallerySection } from "@/components/gallery-section";
 import { TestimonialsSection } from "@/components/testimonials-section";
 import { ContactSection } from "@/components/contact-section";
 import { Footer } from "@/components/footer";
-
+import { ReminderSection } from "@/components/reminder-section";
+import { ProjectsCtaSection } from "@/components/projects-cta-section";
 export default function HomePage() {
   return (
-    <main className="h-screen">
+    <main className="min-h-screen">
       <Header />
       <HeroSection />
       <ServicesSection />
+      <ProjectsCtaSection />
+      <PricingSection />
       <AboutSection />
-      <GallerySection />
+      {/* <GallerySection /> */}
+
       {/* <TestimonialsSection /> */}
+      <ReminderSection />
       <ContactSection />
       <Footer />
     </main>

@@ -15,7 +15,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2">
             <Flame className="h-8 w-8 text-accent" />
             <span className="text-xl font-semibold tracking-tight text-foreground">
-              Bavčar grijanje
+              WarmHome
             </span>
           </Link>
 

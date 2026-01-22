@@ -125,8 +125,16 @@
   }
 }
 
-html,
+/* html,
 body {
   background-color: hsl(var(--background));
+  overflow-x: hidden;
+} */
+
+html {
+  background-color: hsl(var(--background));
+}
+
+body {
   overflow-x: hidden;
 }

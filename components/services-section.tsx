@@ -18,7 +18,7 @@ const services = [
     icon: Wrench,
     title: "Popravci i Održavanje",
     description:
-      "Brzi i pouzdani popravci svih sustava grijanja. Naši inženjeri s Gas Safe certifikatom brzo dijagnosticiraju i rješavaju probleme.",
+      "Brzi i pouzdani popravci svih sustava grijanja. Naši inženjeri brzo dijagnosticiraju i rješavaju probleme.",
     features: [
       "Hitni dolasci 24/7",
       "Popravci po fiksnoj cijeni",

@@ -11,7 +11,7 @@ export function HeroSection() {
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm font-medium">
               <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Hitna služba dostupna 24/7
+              Stranica je u izradi
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-foreground text-balance leading-tight">
@@ -86,7 +86,7 @@ export function HeroSection() {
                 </div>
                 <div>
                   <p className="text-2xl font-semibold text-foreground">
-                    15,000+
+                    1000+
                   </p>
                   <p className="text-sm text-muted-foreground">Zadovoljnih korisnika</p>
                 </div>

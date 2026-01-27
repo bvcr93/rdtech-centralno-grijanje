@@ -10,7 +10,7 @@ export function Footer() {
             <Link href="/" className="flex items-center gap-2 mb-6">
               <Flame className="h-8 w-8" />
               <span className="text-xl font-semibold tracking-tight">
-                WarmHome
+                Bavcar Grijanje
               </span>
             </Link>
             <p className="text-primary-foreground/80 leading-relaxed max-w-md mb-6">

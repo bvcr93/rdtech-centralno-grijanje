@@ -8,7 +8,7 @@ const pricingPlans = [
   {
     name: "Mali Servis",
     subtitle: "Osnovno Održavanje",
-    price: "$70",
+    price: "$80",
     description: "Osnovna provjera kako bi vaš sustav grijanja radio glatko",
     features: [
       "Vizualna inspekcija kotla",
@@ -24,7 +24,7 @@ const pricingPlans = [
   {
     name: "Veliki Servis",
     subtitle: "Potpuno Održavanje",
-    price: "$120",
+    price: "$130",
     description: "Sveobuhvatan servis za optimalne performanse i dugovječnost",
     features: [
       "Potpuna inspekcija kotla",

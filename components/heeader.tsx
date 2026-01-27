@@ -15,7 +15,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2">
             <Flame className="h-8 w-8 text-accent" />
             <span className="text-xl font-semibold tracking-tight text-foreground">
-              WarmHome
+              Bavčar Grijanje
             </span>
           </Link>
 
@@ -24,50 +24,50 @@ export function Header() {
               href="#services"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Services
+              Servisi
             </Link>
             <Link
               href="#pricing"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Pricing
+              Cijene
             </Link>
             <Link
               href="#about"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              About
+              O nama
             </Link>
             <Link
               href="#gallery"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Gallery
+              Galerija
             </Link>
-            <Link
+            {/* <Link
               href="#testimonials"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Testimonials
-            </Link>
+            </Link> */}
             <Link
               href="#contact"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              Contact
+              Kontakt
             </Link>
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
             <a
-              href="tel:0800-123-4567"
+              href="tel:+385911275398"
               className="flex items-center gap-2 text-sm font-medium text-foreground"
             >
               <Phone className="h-4 w-4" />
-              0800-123-4567
+              +385911275398
             </a>
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-              Book a Service
+              Zakažite Servis
             </Button>
           </div>
 
@@ -94,53 +94,53 @@ export function Header() {
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Services
+              Servisi
             </Link>
             <Link
               href="#pricing"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Pricing
+              Cijene
             </Link>
             <Link
               href="#about"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              About
+              O nama
             </Link>
             <Link
               href="#gallery"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Gallery
+              Galerija
             </Link>
-            <Link
+            {/* <Link
               href="#testimonials"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
               Testimonials
-            </Link>
+            </Link> */}
             <Link
               href="#contact"
               className="block text-base font-medium text-foreground"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Contact
+              Kontakt
             </Link>
             <div className="pt-4 border-t border-border">
               <a
-                href="tel:0800-123-4567"
+                href="tel:+385911275398"
                 className="flex items-center gap-2 text-base font-medium text-foreground mb-4"
               >
                 <Phone className="h-5 w-5" />
-                0800-123-4567
+                +385911275398
               </a>
               <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                Book a Service
+                Zakažite Servis
               </Button>
             </div>
           </div>

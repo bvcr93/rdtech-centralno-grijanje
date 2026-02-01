@@ -26,17 +26,6 @@ const services = [
     ],
   },
   {
-    icon: Settings,
-    title: "Godišnji Servis",
-    description:
-      "Održavajte svoj sustav grijanja učinkovit i siguran s našim sveobuhvatnim godišnjim servisnim paketima.",
-    features: [
-      "Potpuna provjera sustava",
-      "Sigurnosni certifikat",
-      "Prioritetna rezervacija",
-    ],
-  },
-  {
     icon: Zap,
     title: "Pametna Kontrola",
     description:
@@ -61,7 +50,7 @@ export function ServicesSection() {
             Naša ponuda usluga grijanja pokriva sve vaše potrebe
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Od instalacija do hitnih popravaka, pružamo sveobuhvatna rješenja
+            Pružamo sveobuhvatna rješenja
             centralnog grijanja koja vaš dom održavaju udobnim tijekom cijele
             godine.
           </p>

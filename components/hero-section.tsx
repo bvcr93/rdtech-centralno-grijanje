@@ -19,7 +19,7 @@ export function HeroSection() {
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-              Profesionalna instalacija, popravak i održavanje centralnog grijanja. 
+              Profesionalno održavanje centralnog grijanja. 
               Održavamo vaš dom toplim i račune za energiju niskima uz naše tehničare.
             </p>
 
@@ -41,12 +41,6 @@ export function HeroSection() {
             </div>
 
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
-              <div className="flex flex-col items-center sm:items-start gap-2">
-                <Shield className="h-6 w-6 text-accent" />
-                <span className="text-sm font-medium text-foreground text-center sm:text-left">
-                  Certificirani stručnjaci
-                </span>
-              </div>
               <div className="flex flex-col items-center sm:items-start gap-2">
                 <Clock className="h-6 w-6 text-accent" />
                 <span className="text-sm font-medium text-foreground text-center sm:text-left">

@@ -176,7 +176,7 @@ export default function ProjectsPage() {
             href="/"
             className="font-serif text-xl font-semibold text-foreground"
           >
-            WarmHome
+            Bavčar Grijanje
           </Link>
         </div>
       </header>
@@ -187,11 +187,11 @@ export default function ProjectsPage() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <MapPin className="w-5 h-5 text-accent" />
             <span className="text-sm font-medium uppercase tracking-wide text-primary-foreground/80">
-              Project Gallery
+              Galerija projekata
             </span>
           </div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
-            Our Work by Location
+            Poslovi po lokacijama
           </h1>
           <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
             Browse our completed heating projects across Croatia. Each

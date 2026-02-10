@@ -35,13 +35,18 @@ export default function BookingPage() {
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [clientSecret, setClientSecret] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
 
+  // Fetch client secret i pošalji email
   const fetchClientSecret = async () => {
     if (!selectedDate) throw new Error("No date selected");
     if (!product) throw new Error("Product not found");
+    if (!email) throw new Error("Email is required");
+
     const secret = await startCheckoutSession(
       product.id,
       format(selectedDate, "yyyy-MM-dd"),
+      email // <-- email za Stripe receipt
     );
     setClientSecret(secret);
   };
@@ -52,7 +57,7 @@ export default function BookingPage() {
   };
 
   const handleProceedToCheckout = async () => {
-    if (selectedDate) {
+    if (selectedDate && email) {
       await fetchClientSecret();
       setShowCheckout(true);
     }
@@ -144,7 +149,6 @@ export default function BookingPage() {
           {/* Right: Date picker + checkout */}
           <div className="md:col-span-3">
             {isCustomPlan ? (
-              /* Custom plan: contact form messaging */
               <Card className="shadow-sm">
                 <CardHeader className="pb-4">
                   <h2 className="font-serif text-xl font-semibold text-foreground">
@@ -176,7 +180,6 @@ export default function BookingPage() {
                 </CardContent>
               </Card>
             ) : showCheckout && selectedDate && clientSecret ? (
-              /* Stripe checkout */
               <Card className="shadow-sm overflow-hidden">
                 <CardHeader className="pb-4 border-b border-border">
                   <div className="flex items-center justify-between">
@@ -198,22 +201,27 @@ export default function BookingPage() {
                 </CardContent>
               </Card>
             ) : (
-              /* Date selection step */
               <Card className="shadow-sm">
                 <CardHeader className="pb-4">
                   <h2 className="font-serif text-xl font-semibold text-foreground">
-                    Select Preferred Date
+                    Select Preferred Date & Email
                   </h2>
                   <p className="text-muted-foreground text-sm">
-                    Pick a date that works for you. We will confirm
-                    availability.
+                    Pick a date that works for you and enter your email. We will confirm availability.
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <Popover
-                    open={isCalendarOpen}
-                    onOpenChange={setIsCalendarOpen}
-                  >
+                  {/* Email input */}
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full p-3 border rounded-md text-sm"
+                  />
+
+                  {/* Calendar */}
+                  <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
                     <PopoverTrigger asChild>
                       <Button
                         variant="outline"
@@ -262,11 +270,10 @@ export default function BookingPage() {
 
                   <Button
                     onClick={handleProceedToCheckout}
-                    disabled={!selectedDate}
+                    disabled={!selectedDate || !email}
                     className="w-full bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-base"
                   >
-                    Proceed to Payment - $
-                    {(product.priceInCents / 100).toFixed(0)}
+                    Proceed to Payment - ${(product.priceInCents / 100).toFixed(0)}
                   </Button>
                 </CardContent>
               </Card>

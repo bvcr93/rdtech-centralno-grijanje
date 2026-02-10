@@ -15,14 +15,14 @@ export function PricingSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-accent font-medium text-sm uppercase tracking-wider">
-            Pricing
+            Cjenik
           </span>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground mt-3 mb-4 text-balance">
-            Transparent Pricing
+            Transparentne cijene
           </h2>
           <p className="text-muted-foreground text-lg">
-            Choose the service package that fits your needs. No hidden fees, no
-            surprises.
+            Odaberite paket usluge koji najbolje odgovara vašim potrebama. Bez
+            skrivenih troškova i neugodnih iznenađenja.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export function PricingSection() {
             return (
               <Card
                 key={plan.id}
-                className={`relative flex flex-col transition-all duration-300 ease-out hover:scale-[1.03] hover:shadow-xl ${
+                className={`relative flex flex-col transition-all duration-300 ease-out hover:shadow-2xl ${
                   plan.popular
                     ? "border-accent shadow-lg scale-105 z-10"
                     : "border-border shadow-sm"
@@ -60,12 +60,12 @@ export function PricingSection() {
                       <div className="flex items-center justify-center gap-2">
                         <Phone className="h-6 w-6 text-accent" />
                         <span className="text-3xl font-bold text-foreground">
-                          {"Let's Talk"}
+                          {"Upit"}
                         </span>
                       </div>
                     ) : (
                       <span className="text-5xl font-bold text-foreground">
-                        ${(plan.priceInCents / 100).toFixed(0)}
+                        €{(plan.priceInCents / 100).toFixed(0)}
                       </span>
                     )}
                   </div>
@@ -94,7 +94,7 @@ export function PricingSection() {
                     variant={plan.popular ? "default" : "outline"}
                   >
                     <Link href={`/book/${plan.id}`}>
-                      {isCustom ? "Contact Us" : "Book Now"}
+                      {isCustom ? "Pošaljite upit" : "Rezervirajte"}
                     </Link>
                   </Button>
                 </CardFooter>

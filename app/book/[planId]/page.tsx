@@ -46,7 +46,7 @@ export default function BookingPage() {
     const secret = await startCheckoutSession(
       product.id,
       format(selectedDate, "yyyy-MM-dd"),
-      email // <-- email za Stripe receipt
+      email, // <-- email za Stripe receipt
     );
     setClientSecret(secret);
   };
@@ -128,7 +128,7 @@ export default function BookingPage() {
               {!isCustomPlan && (
                 <div className="mb-6">
                   <span className="text-4xl font-bold text-foreground">
-                    ${(product.priceInCents / 100).toFixed(0)}
+                    €{(product.priceInCents / 100).toFixed(0)}
                   </span>
                 </div>
               )}
@@ -162,10 +162,10 @@ export default function BookingPage() {
                     personalized quote.
                   </p>
                   <div className="flex flex-col gap-4">
-                    <a href="tel:+1234567890">
+                    <a href="tel:+385911275398">
                       <Button className="w-full gap-2 bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-base">
                         <Phone className="h-5 w-5" />
-                        Call Us: (123) 456-7890
+                        Call Us: +385911275398
                       </Button>
                     </a>
                     <Link href="/#contact">
@@ -207,7 +207,8 @@ export default function BookingPage() {
                     Select Preferred Date & Email
                   </h2>
                   <p className="text-muted-foreground text-sm">
-                    Pick a date that works for you and enter your email. We will confirm availability.
+                    Pick a date that works for you and enter your email. We will
+                    confirm availability.
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -221,7 +222,10 @@ export default function BookingPage() {
                   />
 
                   {/* Calendar */}
-                  <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+                  <Popover
+                    open={isCalendarOpen}
+                    onOpenChange={setIsCalendarOpen}
+                  >
                     <PopoverTrigger asChild>
                       <Button
                         variant="outline"
@@ -273,7 +277,8 @@ export default function BookingPage() {
                     disabled={!selectedDate || !email}
                     className="w-full bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-base"
                   >
-                    Proceed to Payment - ${(product.priceInCents / 100).toFixed(0)}
+                    Proceed to Payment - $
+                    {(product.priceInCents / 100).toFixed(0)}
                   </Button>
                 </CardContent>
               </Card>

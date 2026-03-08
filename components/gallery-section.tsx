@@ -18,63 +18,69 @@ import image10 from "../public/c10.jpeg";
 const galleryItems = [
   {
     src: image1,
-    alt: "Boiler Installation",
-    title: "Boiler Installation",
-    description: "New energy-efficient combi boiler installed in a London home",
+    alt: "Ugradnja plinskog kotla",
+    title: "Ugradnja plinskog kotla",
+    description:
+      "Ugradnja novog, energetski učinkovitog kondenzacijskog kotla u obiteljskoj kući.",
   },
   {
     src: image2,
-    alt: "Radiator Upgrade",
-    title: "Radiator Upgrade",
-    description: "Modern panel radiator fitted in a contemporary living space",
+    alt: "Modernizacija radijatora",
+    title: "Modernizacija radijatora",
+    description:
+      "Ugradnja modernih pločastih radijatora u dnevnom boravku.",
   },
   {
     src: image3,
-    alt: "Expert Service",
-    title: "Expert Service",
-    description: "Our Gas Safe engineers ensuring your system runs perfectly",
+    alt: "Stručni servis",
+    title: "Stručni servis",
+    description:
+      "Naši iskusni serviseri provjeravaju ispravan rad kompletnog sustava.",
   },
   {
     src: image4,
-    alt: "Smart Controls",
-    title: "Smart Controls",
-    description: "WiFi thermostat installation for remote heating control",
+    alt: "Pametna regulacija",
+    title: "Pametna regulacija",
+    description:
+      "Ugradnja WiFi termostata za jednostavno upravljanje grijanjem na daljinu.",
   },
   {
     src: image5,
-    alt: "Underfloor Heating",
-    title: "Underfloor Heating",
-    description: "Warm water underfloor heating system during installation",
+    alt: "Podno grijanje",
+    title: "Podno grijanje",
+    description:
+      "Ugradnja sustava podnog grijanja tijekom završne faze radova.",
   },
   {
     src: image6,
-    alt: "Happy Customers",
-    title: "Happy Customers",
-    description: "Enjoying the warmth of a perfectly heated home",
+    alt: "Zadovoljni korisnici",
+    title: "Zadovoljni korisnici",
+    description:
+      "Topao i ugodan dom nakon uspješno završenog servisa grijanja.",
   },
   {
     src: image7,
-    alt: "Extra Project 1",
-    title: "Extra Project 1",
-    description: "Description for extra project 1",
+    alt: "Dodatni projekt 1",
+    title: "Dodatni projekt 1",
+    description: "Primjer dodatnog projekta ugradnje grijanja.",
   },
   {
     src: image8,
-    alt: "Extra Project 2",
-    title: "Extra Project 2",
-    description: "Description for extra project 2",
+    alt: "Dodatni projekt 2",
+    title: "Dodatni projekt 2",
+    description: "Instalacija novog sustava grijanja u manjem objektu.",
   },
   {
     src: image9,
-    alt: "Extra Project 3",
-    title: "Extra Project 3",
-    description: "Description for extra project 3",
+    alt: "Dodatni projekt 3",
+    title: "Dodatni projekt 3",
+    description: "Modernizacija postojećeg sustava grijanja.",
   },
   {
     src: image10,
-    alt: "Extra Project 4",
-    title: "Extra Project 4",
-    description: "Description for extra project 4",
+    alt: "Dodatni projekt 4",
+    title: "Dodatni projekt 4",
+    description: "Ugradnja novih radijatora i regulacije.",
   },
 ];
 
@@ -108,14 +114,14 @@ export function GallerySection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-accent font-medium mb-2 tracking-wide uppercase text-sm">
-            Our Work
+            Naši radovi
           </p>
           <h2 className="text-3xl md:text-4xl font-serif font-semibold text-foreground mb-4 text-balance">
-            Project Gallery
+            Galerija projekata
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Browse through our recent installations and see the quality of
-            workmanship we deliver to every customer.
+            Pogledajte naše nedavne instalacije i uvjerite se u kvalitetu
+            izvedbe koju pružamo svakom klijentu.
           </p>
         </div>
 
@@ -150,14 +156,14 @@ export function GallerySection() {
           className="fixed inset-0 z-50 bg-foreground/95 flex items-center justify-center"
           role="dialog"
           aria-modal="true"
-          aria-label="Image lightbox"
+          aria-label="Galerija slika"
         >
           <Button
             variant="ghost"
             size="icon"
             onClick={closeLightbox}
             className="absolute top-4 right-4 text-card hover:text-card/80 hover:bg-card/10 z-10"
-            aria-label="Close lightbox"
+            aria-label="Zatvori galeriju"
           >
             <X className="h-6 w-6" />
           </Button>
@@ -167,7 +173,7 @@ export function GallerySection() {
             size="icon"
             onClick={goToPrevious}
             className="absolute left-4 text-card hover:text-card/80 hover:bg-card/10 z-10"
-            aria-label="Previous image"
+            aria-label="Prethodna slika"
           >
             <ChevronLeft className="h-8 w-8" />
           </Button>
@@ -177,7 +183,7 @@ export function GallerySection() {
             size="icon"
             onClick={goToNext}
             className="absolute right-4 text-card hover:text-card/80 hover:bg-card/10 z-10"
-            aria-label="Next image"
+            aria-label="Sljedeća slika"
           >
             <ChevronRight className="h-8 w-8" />
           </Button>

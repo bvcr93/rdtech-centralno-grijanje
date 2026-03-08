@@ -1,3 +1,6 @@
+ "use client";
+
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,8 +13,37 @@ import { Check, Phone } from "lucide-react";
 import { PRODUCTS } from "@/lib/products";
 
 export function PricingSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="pricing" className="py-20 md:py-28 bg-secondary/50">
+    <section
+      id="pricing"
+      ref={sectionRef}
+      className="py-20 md:py-28 bg-secondary/50"
+    >
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-accent font-medium text-sm uppercase tracking-wider">
@@ -27,22 +59,29 @@ export function PricingSection() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-          {PRODUCTS.map((plan) => {
+          {PRODUCTS.map((plan, index) => {
             const isCustom = plan.priceInCents === 0;
 
             return (
               <Card
                 key={plan.id}
-                className={`relative flex flex-col transition-all duration-300 ease-out hover:shadow-2xl ${
+                className={`relative flex flex-col transition-all duration-700 ease-out hover:shadow-2xl ${
+                  inView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                } ${
                   plan.popular
                     ? "border-accent shadow-lg scale-105 z-10"
                     : "border-border shadow-sm"
                 }`}
+                style={{
+                  transitionDelay: inView ? `${index * 120}ms` : "0ms",
+                }}
               >
                 {plan.popular && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                     <span className="bg-accent text-accent-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                      Most Popular
+                      Najčešći odabir
                     </span>
                   </div>
                 )}
@@ -104,8 +143,8 @@ export function PricingSection() {
         </div>
 
         <p className="text-center text-muted-foreground text-sm mt-12 max-w-xl mx-auto">
-          All prices include VAT. Emergency callouts and parts are charged
-          separately unless covered by an All Included plan.
+          Sve cijene uključuju PDV. Hitne intervencije i rezervni dijelovi
+          naplaćuju se zasebno, osim ako nisu uključeni u paket Sve uključeno.
         </p>
       </div>
     </section>

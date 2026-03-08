@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -15,78 +15,70 @@ import m3 from "../../public/matulji/m3.jpeg";
 import m4 from "../../public/matulji/m4.jpeg";
 import m5 from "../../public/matulji/m5.jpeg";
 
-const locations = [
-  { id: "all", name: "All Locations", count: 8 },
-  { id: "zagreb", name: "Zagreb", count: 2 },
-  { id: "split", name: "Split", count: 2 },
-  { id: "rijeka", name: "Rijeka", count: 2 },
-  { id: "osijek", name: "Osijek", count: 2 },
-];
-
 const projects = [
   {
     id: 1,
-    title: "Modern Boiler Installation",
+    title: "Moderna ugradnja plinskog kotla",
     location: "klana",
     locationName: "Klana",
     description:
-      "High-efficiency condensing boiler installed in a renovated city apartment.",
+      "Ugradnja visokoučinkovitog kondenzacijskog kotla u renoviranom stanu.",
     images: [k1, k2, k3, k4],
     year: "2024",
-    type: "Boiler Installation",
+    type: "Ugradnja kotla",
   },
   {
     id: 2,
-    title: "Designer Radiator Upgrade",
+    title: "Ugradnja dizajnerskih radijatora",
     location: "matulji",
     locationName: "Matulji",
     description:
-      "Vertical panel radiators bringing modern style to a contemporary living space.",
+      "Ugradnja vertikalnih radijatora koji prostoru daju moderan i elegantan izgled.",
     images: [m1, m2, m3, m4, m5],
     year: "2024",
-    type: "Radiator Installation",
+    type: "Ugradnja radijatora",
   },
   {
     id: 3,
-    title: "Coastal Heat Pump System",
+    title: "Sustav grijanja s toplinskom pumpom",
     location: "split",
     locationName: "Split",
     description:
-      "Energy-efficient heat pump installation for Mediterranean climate comfort.",
+      "Ugradnja energetski učinkovite toplinske pumpe za ugodnu klimu tijekom cijele godine.",
     images: [
       "/projects/split-heating-1.jpg",
       "https://images.pexels.com/photos/3852188/pexels-photo-3852188.jpeg",
     ],
     year: "2023",
-    type: "Heat Pump",
+    type: "Toplinska pumpa",
   },
   {
     id: 4,
-    title: "Underfloor Heating Project",
+    title: "Projekt podnog grijanja",
     location: "split",
     locationName: "Split",
     description:
-      "Complete underfloor heating system in a new construction villa.",
+      "Ugradnja kompletnog sustava podnog grijanja u novogradnji obiteljske kuće.",
     images: [
       "/projects/split-underfloor-1.jpg",
       "https://images.pexels.com/photos/7045696/pexels-photo-7045696.jpeg",
     ],
     year: "2023",
-    type: "Underfloor Heating",
+    type: "Podno grijanje",
   },
   {
     id: 5,
-    title: "Apartment Boiler Replacement",
+    title: "Zamjena kotla u stanu",
     location: "rijeka",
     locationName: "Rijeka",
     description:
-      "Seamless boiler upgrade in a renovated apartment with minimal disruption.",
+      "Zamjena postojećeg kotla novim, učinkovitijim modelom uz minimalan utjecaj na svakodnevni život.",
     images: [
       "/projects/rijeka-boiler-1.jpg",
       "https://images.pexels.com/photos/7045686/pexels-photo-7045686.jpeg",
     ],
     year: "2024",
-    type: "Boiler Replacement",
+    type: "Zamjena kotla",
   },
   {
     id: 6,
@@ -94,13 +86,13 @@ const projects = [
     location: "rijeka",
     locationName: "Rijeka",
     description:
-      "WiFi-enabled smart thermostat for remote temperature control.",
+      "Ugradnja pametnog termostata s WiFi povezivošću za jednostavno upravljanje grijanjem na daljinu.",
     images: [
       "/projects/rijeka-thermostat-1.jpg",
       "https://images.pexels.com/photos/6769/technology-thermostat-smart-house.jpg",
     ],
     year: "2024",
-    type: "Smart Controls",
+    type: "Pametna regulacija",
   },
   {
     id: 7,
@@ -108,13 +100,13 @@ const projects = [
     location: "osijek",
     locationName: "Osijek",
     description:
-      "Complete central heating installation for a large family residence.",
+      "Ugradnja kompletnog sustava centralnog grijanja u većoj obiteljskoj kući.",
     images: [
       "/projects/osijek-heating-1.jpg",
       "https://images.pexels.com/photos/3852188/pexels-photo-3852188.jpeg",
     ],
     year: "2023",
-    type: "Full System",
+    type: "Cjelokupan sustav",
   },
   {
     id: 8,
@@ -122,15 +114,30 @@ const projects = [
     location: "osijek",
     locationName: "Osijek",
     description:
-      "Classic radiator installation preserving the charm of a traditional Croatian home.",
+      "Ugradnja klasičnih radijatora uz zadržavanje autentičnog izgleda tradicionalne kuće.",
     images: [
       "/projects/osijek-radiator-1.jpg",
       "https://images.pexels.com/photos/6988097/pexels-photo-6988097.jpeg",
     ],
     year: "2023",
-    type: "Radiator Installation",
+    type: "Ugradnja radijatora",
   },
 ];
+
+const locations = [
+  { id: "all", name: "Sve lokacije" },
+  { id: "klana", name: "Klana" },
+  { id: "matulji", name: "Matulji" },
+  { id: "split", name: "Split" },
+  { id: "rijeka", name: "Rijeka" },
+  { id: "osijek", name: "Osijek" },
+].map((location) => ({
+  ...location,
+  count:
+    location.id === "all"
+      ? projects.length
+      : projects.filter((p) => p.location === location.id).length,
+}));
 
 export default function ProjectsPage() {
   const [activeLocation, setActiveLocation] = useState("all");
@@ -161,6 +168,23 @@ export default function ProjectsPage() {
     setCurrentImageIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+
+      if (event.key === "Escape") {
+        setLightboxOpen(false);
+      } else if (event.key === "ArrowLeft") {
+        goToPrevious();
+      } else if (event.key === "ArrowRight") {
+        goToNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxOpen, goToNext, goToPrevious]);
+
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
@@ -169,7 +193,7 @@ export default function ProjectsPage() {
           <Button variant="ghost" asChild className="gap-2">
             <Link href="/">
               <ArrowLeft className="w-4 h-4" />
-              Back to Home
+              Povratak na početnu
             </Link>
           </Button>
           <Link
@@ -194,9 +218,9 @@ export default function ProjectsPage() {
             Poslovi po lokacijama
           </h1>
           <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-            Browse our completed heating projects across Croatia. Each
-            installation represents our commitment to quality and customer
-            satisfaction.
+            Pregledajte naše završene projekte grijanja diljem Hrvatske. Svaka
+            ugradnja odražava našu posvećenost kvaliteti i zadovoljstvu
+            klijenata.
           </p>
         </div>
       </section>
@@ -286,7 +310,7 @@ export default function ProjectsPage() {
           {filteredProjects.length === 0 && (
             <div className="text-center py-16">
               <p className="text-muted-foreground text-lg">
-                No projects found for this location.
+                Nema projekata za odabranu lokaciju.
               </p>
             </div>
           )}
@@ -297,29 +321,33 @@ export default function ProjectsPage() {
       <section className="py-16 bg-primary text-primary-foreground text-center">
         <div className="container mx-auto px-4">
           <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-4">
-            Ready to Start Your Project?
+            Spremni za vaš projekt?
           </h2>
           <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Join hundreds of satisfied customers who trust WarmHome for their
-            heating needs.
+            Pridružite se brojnim zadovoljnih klijenata koji vjeruju
+            Bavčar Grijanju za svoje potrebe grijanja.
           </p>
           <Button
             asChild
             size="lg"
             className="bg-accent hover:bg-accent/90 text-accent-foreground"
           >
-            <Link href="/#contact">Get a Free Quote</Link>
+            <Link href="/#contact">Zatražite besplatnu ponudu</Link>
           </Button>
         </div>
       </section>
 
       {/* Lightbox */}
       {lightboxOpen && filteredProjects[currentProjectIndex] && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+        <div
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          role="dialog"
+          aria-modal="true"
+        >
           <button
             onClick={closeLightbox}
             className="absolute top-4 right-4 z-50 p-2 text-white/80 hover:text-white transition-colors"
-            aria-label="Close lightbox"
+            aria-label="Zatvori galeriju"
           >
             <X className="w-8 h-8" />
           </button>
@@ -327,7 +355,7 @@ export default function ProjectsPage() {
           <button
             onClick={goToPrevious}
             className="absolute left-4 z-50 p-2 text-white/80 hover:text-white transition-colors"
-            aria-label="Previous image"
+            aria-label="Prethodna slika"
           >
             <ChevronLeft className="w-10 h-10" />
           </button>
@@ -335,7 +363,7 @@ export default function ProjectsPage() {
           <button
             onClick={goToNext}
             className="absolute right-4 z-50 p-2 text-white/80 hover:text-white transition-colors"
-            aria-label="Next image"
+            aria-label="Sljedeća slika"
           >
             <ChevronRight className="w-10 h-10" />
           </button>

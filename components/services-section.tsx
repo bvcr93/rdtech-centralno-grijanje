@@ -1,3 +1,6 @@
+ "use client";
+
+import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Wrench, Thermometer, Settings, Zap, ArrowRight } from "lucide-react";
 
@@ -39,8 +42,37 @@ const services = [
 ];
 
 export function ServicesSection() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="services" className="py-24 bg-secondary/50">
+    <section
+      id="services"
+      ref={sectionRef}
+      className="py-24 bg-secondary/50"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-16">
           <p className="text-sm font-medium text-accent mb-3 uppercase tracking-wider">
@@ -57,10 +89,15 @@ export function ServicesSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <Card
               key={service.title}
-              className="group bg-card border-border hover:border-accent/30 transition-all duration-300"
+              className={`group bg-card border-border hover:border-accent/30 transition-all duration-700 ${
+                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
+              style={{
+                transitionDelay: inView ? `${index * 120}ms` : "0ms",
+              }}
             >
               <CardContent className="p-8">
                 <div className="flex items-start gap-6">

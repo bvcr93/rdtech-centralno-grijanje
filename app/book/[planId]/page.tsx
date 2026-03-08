@@ -68,10 +68,10 @@ export default function BookingPage() {
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
           <h1 className="font-serif text-3xl font-semibold text-foreground mb-4">
-            Plan not found
+            Paket nije pronađen
           </h1>
           <Link href="/#pricing">
-            <Button variant="outline">Back to Pricing</Button>
+            <Button variant="outline">Povratak na cjenik</Button>
           </Link>
         </div>
       </div>
@@ -89,7 +89,7 @@ export default function BookingPage() {
             <Link href="/" className="flex items-center gap-2">
               <Flame className="h-7 w-7 text-accent" />
               <span className="font-serif text-xl font-semibold text-foreground">
-                WarmHome
+                Bavčar Grijanje
               </span>
             </Link>
             <Button
@@ -98,7 +98,7 @@ export default function BookingPage() {
               className="gap-2"
             >
               <ArrowLeft className="h-4 w-4" />
-              Back
+              Natrag
             </Button>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function BookingPage() {
         {/* Plan summary */}
         <div className="text-center mb-10">
           <span className="text-accent font-medium text-sm uppercase tracking-wider">
-            Booking
+            Rezervacija
           </span>
           <h1 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mt-3 mb-2 text-balance">
             {product.name}
@@ -121,7 +121,7 @@ export default function BookingPage() {
           <Card className="md:col-span-2 h-fit shadow-sm">
             <CardHeader className="pb-4">
               <h2 className="font-serif text-xl font-semibold text-foreground">
-                Service Summary
+                Sažetak usluge
               </h2>
             </CardHeader>
             <CardContent>
@@ -152,20 +152,20 @@ export default function BookingPage() {
               <Card className="shadow-sm">
                 <CardHeader className="pb-4">
                   <h2 className="font-serif text-xl font-semibold text-foreground">
-                    Get a Custom Quote
+                    Zatražite prilagođenu ponudu
                   </h2>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <p className="text-muted-foreground">
-                    The All Included plan is tailored to your specific needs.
-                    Contact us to discuss your requirements and get a
-                    personalized quote.
+                    Paket Sve uključeno prilagođava se vašim specifičnim
+                    potrebama. Kontaktirajte nas kako bismo razgovarali o vašim
+                    zahtjevima i pripremili personaliziranu ponudu.
                   </p>
                   <div className="flex flex-col gap-4">
                     <a href="tel:+385911275398">
                       <Button className="w-full gap-2 bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-base">
                         <Phone className="h-5 w-5" />
-                        Call Us: +385911275398
+                        Nazovite nas: +385 91 127 5398
                       </Button>
                     </a>
                     <Link href="/#contact">
@@ -173,7 +173,7 @@ export default function BookingPage() {
                         variant="outline"
                         className="w-full h-12 text-base bg-transparent"
                       >
-                        Send a Message
+                        Pošaljite poruku
                       </Button>
                     </Link>
                   </div>
@@ -184,10 +184,10 @@ export default function BookingPage() {
                 <CardHeader className="pb-4 border-b border-border">
                   <div className="flex items-center justify-between">
                     <h2 className="font-serif text-xl font-semibold text-foreground">
-                      Payment
+                      Plaćanje
                     </h2>
                     <span className="text-sm text-muted-foreground">
-                      Preferred date: {format(selectedDate, "PPP")}
+                      Željeni datum: {format(selectedDate, "PPP")}
                     </span>
                   </div>
                 </CardHeader>
@@ -204,18 +204,18 @@ export default function BookingPage() {
               <Card className="shadow-sm">
                 <CardHeader className="pb-4">
                   <h2 className="font-serif text-xl font-semibold text-foreground">
-                    Select Preferred Date & Email
+                    Odaberite željeni datum i email
                   </h2>
                   <p className="text-muted-foreground text-sm">
-                    Pick a date that works for you and enter your email. We will
-                    confirm availability.
+                    Odaberite datum koji vam odgovara i unesite svoj email. Mi
+                    ćemo potvrditi dostupnost termina.
                   </p>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Email input */}
                   <input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Unesite svoj email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full p-3 border rounded-md text-sm"
@@ -238,7 +238,7 @@ export default function BookingPage() {
                           </span>
                         ) : (
                           <span className="text-muted-foreground">
-                            Click to select a date
+                            Kliknite za odabir datuma
                           </span>
                         )}
                       </Button>
@@ -262,12 +262,12 @@ export default function BookingPage() {
                   {selectedDate && (
                     <div className="rounded-lg bg-secondary/60 p-4">
                       <p className="text-sm text-foreground">
-                        <span className="font-medium">Selected:</span>{" "}
+                        <span className="font-medium">Odabrano:</span>{" "}
                         {format(selectedDate, "EEEE, MMMM do, yyyy")}
                       </p>
                       <p className="text-xs text-muted-foreground mt-1">
-                        We will confirm the exact time slot via email after
-                        payment.
+                        Točan termin potvrdit ćemo vam putem emaila nakon
+                        izvršenog plaćanja.
                       </p>
                     </div>
                   )}
@@ -277,7 +277,7 @@ export default function BookingPage() {
                     disabled={!selectedDate || !email}
                     className="w-full bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-base"
                   >
-                    Proceed to Payment - $
+                    Nastavi na plaćanje - €
                     {(product.priceInCents / 100).toFixed(0)}
                   </Button>
                 </CardContent>

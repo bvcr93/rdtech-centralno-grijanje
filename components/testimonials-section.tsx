@@ -3,22 +3,22 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    location: "Manchester",
+    name: "Ana Kovač",
+    location: "Rijeka",
     rating: 5,
-    text: "Excellent service from start to finish. The engineer arrived on time, explained everything clearly, and left the workspace spotless. Our new boiler is running perfectly.",
+    text: "Izvrsna usluga od početka do kraja. Majstor je došao na vrijeme, sve jasno objasnio i ostavio prostor potpuno čistim. Naš sustav grijanja radi savršeno.",
   },
   {
-    name: "James Thompson",
-    location: "Birmingham",
+    name: "Marko Horvat",
+    location: "Zagreb",
     rating: 5,
-    text: "Called them for an emergency repair on a freezing Sunday morning. They had someone at our door within 2 hours. Absolute lifesavers!",
+    text: "Zvali smo ih zbog kvara usred hladnog vikenda. Došli su za manje od dva sata i brzo riješili problem. Svaka preporuka!",
   },
   {
-    name: "Emma Wilson",
-    location: "Leeds",
+    name: "Ivana Petrović",
+    location: "Opatija",
     rating: 5,
-    text: "We've been using WarmHome for our annual service for 5 years now. Reliable, professional, and always great value. Highly recommend.",
+    text: "Već nekoliko godina s njima radimo godišnji servis. Uvijek profesionalni, ljubazni i pouzdani. Topla preporuka.",
   },
 ];
 
@@ -28,14 +28,14 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-sm font-medium text-accent mb-3 uppercase tracking-wider">
-            Testimonials
+            Iskustva
           </p>
           <h2 className="text-3xl sm:text-4xl font-serif font-medium text-foreground mb-6">
-            What our customers say
+            Što kažu naši korisnici
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Don&apos;t just take our word for it. Here&apos;s what homeowners across the
-            country have to say about our services.
+            Ne morate vjerovati samo nama – pročitajte što klijenti diljem
+            Hrvatske kažu o našim uslugama.
           </p>
         </div>
 
@@ -73,7 +73,7 @@ export function TestimonialsSection() {
               15K+
             </p>
             <p className="text-sm text-muted-foreground mt-1">
-              Satisfied Customers
+              Zadovoljnih korisnika
             </p>
           </div>
           <div className="text-center">
@@ -81,7 +81,7 @@ export function TestimonialsSection() {
               98%
             </p>
             <p className="text-sm text-muted-foreground mt-1">
-              Satisfaction Rate
+              Stopa zadovoljstva
             </p>
           </div>
           <div className="text-center">
@@ -89,13 +89,13 @@ export function TestimonialsSection() {
               24/7
             </p>
             <p className="text-sm text-muted-foreground mt-1">
-              Emergency Support
+              Hitna podrška
             </p>
           </div>
           <div className="text-center">
             <p className="text-4xl font-serif font-medium text-foreground">5</p>
             <p className="text-sm text-muted-foreground mt-1">
-              Year Warranty
+              Godina jamstva
             </p>
           </div>
         </div>

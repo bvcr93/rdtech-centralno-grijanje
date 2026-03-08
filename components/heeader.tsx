@@ -66,8 +66,11 @@ export function Header() {
               <Phone className="h-4 w-4" />
               +385911275398
             </a>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-              Zakažite Servis
+            <Button
+              asChild
+              className="bg-accent text-accent-foreground hover:bg-accent/90"
+            >
+              <Link href="#contact">Zakažite servis</Link>
             </Button>
           </div>
 
@@ -139,8 +142,11 @@ export function Header() {
                 <Phone className="h-5 w-5" />
                 +385911275398
               </a>
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-                Zakažite Servis
+              <Button
+                asChild
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90"
+              >
+                <Link href="#contact">Zakažite servis</Link>
               </Button>
             </div>
           </div>

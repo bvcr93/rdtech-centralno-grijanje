@@ -1,6 +1,5 @@
  "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,32 +10,10 @@ import {
 } from "@/components/ui/card";
 import { Check, Phone } from "lucide-react";
 import { PRODUCTS } from "@/lib/products";
+import { useSectionInView } from "@/lib/useSectionInView";
 
 export function PricingSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref: sectionRef, inView } = useSectionInView();
 
   return (
     <section
@@ -67,8 +44,8 @@ export function PricingSection() {
                 key={plan.id}
                 className={`relative flex flex-col transition-all duration-700 ease-out hover:shadow-2xl ${
                   inView
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
+                    ? "motion-safe:opacity-100 motion-safe:translate-y-0"
+                    : "motion-safe:opacity-0 motion-safe:translate-y-8"
                 } ${
                   plan.popular
                     ? "border-accent shadow-lg scale-105 z-10"

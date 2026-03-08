@@ -82,7 +82,7 @@ const projects = [
   },
   {
     id: 6,
-    title: "Smart Thermostat Integration",
+    title: "Pametna kontrola termostata",
     location: "rijeka",
     locationName: "Rijeka",
     description:
@@ -96,7 +96,7 @@ const projects = [
   },
   {
     id: 7,
-    title: "Family Home Heating System",
+    title: "Grijanje obiteljske kuće",
     location: "osijek",
     locationName: "Osijek",
     description:
@@ -110,7 +110,7 @@ const projects = [
   },
   {
     id: 8,
-    title: "Traditional Home Radiators",
+    title: "Tradicionalni radijatori",
     location: "osijek",
     locationName: "Osijek",
     description:

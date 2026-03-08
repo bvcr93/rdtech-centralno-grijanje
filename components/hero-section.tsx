@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Shield, Clock, Award } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import image1 from "../public/c1.jpeg";
 
 export function HeroSection() {
@@ -25,18 +26,22 @@ export function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
+                asChild
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 text-base px-8"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-8"
               >
-                Zatraži ponudu
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <Link href="#contact">
+                  Zatraži ponudu
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button
+                asChild
                 size="lg"
                 variant="outline"
                 className="text-base px-8 border-foreground/20 bg-transparent"
               >
-                Pogledaj naše usluge
+                <Link href="#services">Pogledaj naše usluge</Link>
               </Button>
             </div>
 

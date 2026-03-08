@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
@@ -15,6 +15,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { ArrowLeft, CalendarIcon, Check, Flame, Phone } from "lucide-react";
 import { format } from "date-fns";
@@ -36,19 +37,33 @@ export default function BookingPage() {
   const [showCheckout, setShowCheckout] = useState(false);
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   // Fetch client secret i pošalji email
   const fetchClientSecret = async () => {
-    if (!selectedDate) throw new Error("No date selected");
-    if (!product) throw new Error("Product not found");
-    if (!email) throw new Error("Email is required");
+    if (!selectedDate || !product || !email) {
+      return false;
+    }
 
-    const secret = await startCheckoutSession(
-      product.id,
-      format(selectedDate, "yyyy-MM-dd"),
-      email, // <-- email za Stripe receipt
-    );
-    setClientSecret(secret);
+    try {
+      setIsLoading(true);
+      setError(null);
+
+      const secret = await startCheckoutSession(
+        product.id,
+        format(selectedDate, "yyyy-MM-dd"),
+        email, // <-- email za Stripe receipt
+      );
+      setClientSecret(secret);
+      return true;
+    } catch (err) {
+      console.error(err);
+      setError("Dogodila se greška pri pokretanju plaćanja. Pokušajte ponovno.");
+      return false;
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleDateSelect = (date: Date | undefined) => {
@@ -57,8 +72,10 @@ export default function BookingPage() {
   };
 
   const handleProceedToCheckout = async () => {
-    if (selectedDate && email) {
-      await fetchClientSecret();
+    if (!selectedDate || !email) return;
+
+    const success = await fetchClientSecret();
+    if (success) {
       setShowCheckout(true);
     }
   };
@@ -186,9 +203,9 @@ export default function BookingPage() {
                     <h2 className="font-serif text-xl font-semibold text-foreground">
                       Plaćanje
                     </h2>
-                    <span className="text-sm text-muted-foreground">
-                      Željeni datum: {format(selectedDate, "PPP")}
-                    </span>
+                      <span className="text-sm text-muted-foreground">
+                        Željeni datum: {format(selectedDate, "dd.MM.yyyy.")}
+                      </span>
                   </div>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -213,13 +230,22 @@ export default function BookingPage() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Email input */}
-                  <input
-                    type="email"
-                    placeholder="Unesite svoj email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full p-3 border rounded-md text-sm"
-                  />
+                  <div className="space-y-2">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-medium text-foreground"
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Unesite svoj email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                    />
+                  </div>
 
                   {/* Calendar */}
                   <Popover
@@ -234,7 +260,7 @@ export default function BookingPage() {
                         <CalendarIcon className="mr-3 h-5 w-5 text-muted-foreground" />
                         {selectedDate ? (
                           <span className="text-foreground">
-                            {format(selectedDate, "PPP")}
+                            {format(selectedDate, "dd.MM.yyyy.")}
                           </span>
                         ) : (
                           <span className="text-muted-foreground">
@@ -263,7 +289,7 @@ export default function BookingPage() {
                     <div className="rounded-lg bg-secondary/60 p-4">
                       <p className="text-sm text-foreground">
                         <span className="font-medium">Odabrano:</span>{" "}
-                        {format(selectedDate, "EEEE, MMMM do, yyyy")}
+                        {format(selectedDate, "dd.MM.yyyy.")}
                       </p>
                       <p className="text-xs text-muted-foreground mt-1">
                         Točan termin potvrdit ćemo vam putem emaila nakon
@@ -272,13 +298,20 @@ export default function BookingPage() {
                     </div>
                   )}
 
+                  {error && (
+                    <p className="text-sm text-red-500">{error}</p>
+                  )}
+
                   <Button
                     onClick={handleProceedToCheckout}
-                    disabled={!selectedDate || !email}
+                    disabled={!selectedDate || !email || isLoading}
                     className="w-full bg-accent hover:bg-accent/90 text-accent-foreground h-12 text-base"
                   >
-                    Nastavi na plaćanje - €
-                    {(product.priceInCents / 100).toFixed(0)}
+                    {isLoading
+                      ? "Pokrećemo plaćanje..."
+                      : `Nastavi na plaćanje - €${(
+                          product.priceInCents / 100
+                        ).toFixed(0)}`}
                   </Button>
                 </CardContent>
               </Card>

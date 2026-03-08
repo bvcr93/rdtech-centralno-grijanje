@@ -1,8 +1,8 @@
  "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Wrench, Thermometer, Settings, Zap, ArrowRight } from "lucide-react";
+import { useSectionInView } from "@/lib/useSectionInView";
 
 const services = [
   {
@@ -42,30 +42,7 @@ const services = [
 ];
 
 export function ServicesSection() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setInView(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, []);
+  const { ref: sectionRef, inView } = useSectionInView();
 
   return (
     <section
@@ -93,7 +70,9 @@ export function ServicesSection() {
             <Card
               key={service.title}
               className={`group bg-card border-border hover:border-accent/30 transition-all duration-700 ${
-                inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+                inView
+                  ? "motion-safe:opacity-100 motion-safe:translate-y-0"
+                  : "motion-safe:opacity-0 motion-safe:translate-y-8"
               }`}
               style={{
                 transitionDelay: inView ? `${index * 120}ms` : "0ms",
